@@ -1,6 +1,7 @@
 <div class= "container">
+<% if user_signed_in? %>
 <table class="table">
-
+<thead >
     <tr class="success">
       <th><h2>ALL Todos</h2></th>
       <th><h2>User_id</h2>
@@ -29,4 +30,5 @@
   
 </tbody>
 </table>
+<%end%>
 </div>

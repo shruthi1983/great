@@ -15,9 +15,10 @@
     </div>
     <div class=" field form-group">
     
-    <%= f.number_field :user_id,id: :task_user_id,class:"form-control",value: current_user.id,type: :hidden %><br>
-  
+    <%= f.number_field :user_id,id: :task_user_id,class:"form-control",value: current_user.id,type: :hidden %>
     </div>
+    <%= current_user.id%>
+    <br/>
     <div class="form-group" >
    <%= f.submit 'submit',class:'btn btn-primary' %> 
    </div>
