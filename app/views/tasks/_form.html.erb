@@ -8,14 +8,14 @@
 	
     <%= f.datetime_field :created_on,class:"form-control",placeholder:"Date" %><br>
   </div>
-  <div class="form-group">
+  <div class="field form-group">
     
     <%= f.datetime_field :completed_at,class:"form-control",placeholder:"Date" %><br>
   
     </div>
-    <div class="form-group">
+    <div class=" field form-group">
     
-    <%= f.number_field :user_id,class:"form-control",value:current_user_id %><br>
+    <%= f.number_field :user_id,id: :task_user_id,class:"form-control",value: current_user.id,type: :hidden %><br>
   
     </div>
     <div class="form-group" >

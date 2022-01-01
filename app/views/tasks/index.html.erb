@@ -4,12 +4,12 @@
 <% @tasks.each do |task| %>
    
     <h3> <%= link_to task.note,task %>
-          
+          <% if task.user == current_user %>
           <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_task_path(task) %>
           
           <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, task_path(task), method: :delete, data: { confirm: "Are you sure?"} %>
        </h3>        
-    
-
+    <% end %>
+           
 <% end %>
 

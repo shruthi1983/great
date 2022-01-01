@@ -1,12 +1,13 @@
-<ol>
-	<div> <li> <%=@task.note %> <br> 
-	
-	          <p> created_on </p>
-	            <%= @task.created_at %>  <br>
-              <p> completed   </p>
-	           <%= @task.completed_at %> 
+<div class = "container text-center">
 
-          </li> 
-	</div> 
-</ol>
- <button class= "btn btn-secondary" ><%= link_to 'Back',root_path(@task)%></button>
+	 <h2> <%=@task.note %></h2> <br> 
+	
+	          <h3> created_on :
+	           <h4> <%= @task.created_at %></h4> </h3> <br/>
+              <h3> completed_at :   
+	          <h4> <%= @task.completed_at %></h4> </h3><br/>
+      <div> <%= link_to 'Home',root_path(@task),class: 'btn btn-primary'%>
+     </div>      
+
+
+ </div>
