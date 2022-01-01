@@ -1,15 +1,32 @@
+<div class= "container">
+<table class="table">
 
-<h1>ALL Todos </h1>
-
+    <tr class="success">
+      <th><h2>ALL Todos</h2></th>
+      <th><h2>User_id</h2>
+      <th><h2>Edit</h2></th>
+      <th><h2>Delete</h2></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>  
+    <tr> 
+      
 <% @tasks.each do |task| %>
    
-    <h3> <%= link_to task.note,task %>
+    <h3><td> <%= link_to task.note,task %></td>
+    	<td> <%= link_to task.user_id %></td>
           <% if task.user == current_user %>
-          <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_task_path(task) %>
+         <td> <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_task_path(task) %></td>
           
-          <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, task_path(task), method: :delete, data: { confirm: "Are you sure?"} %>
+         <td> <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, task_path(task), method: :delete, data: { confirm: "Are you sure?"} %></h3></td>
+    
+  
        </h3>        
     <% end %>
-           
+     </tr>    
 <% end %>
-
+  
+</tbody>
+</table>
+</div>
