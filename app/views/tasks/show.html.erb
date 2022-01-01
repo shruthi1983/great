@@ -1,0 +1,12 @@
+<ol>
+	<div> <li> <%=@task.note %> <br> 
+	
+	          <p> created_on </p>
+	            <%= @task.created_at %>  <br>
+              <p> completed   </p>
+	           <%= @task.completed_at %> 
+
+          </li> 
+	</div> 
+</ol>
+ <button class= "btn btn-secondary" ><%= link_to 'Back',root_path(@task)%></button>
