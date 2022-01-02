@@ -17,9 +17,10 @@ class TasksController < ApplicationController
   def create
      #@task = Task.new(task_params)
      @task = current_user.tasks.build(task_params)
-  	   if @task.save
-  	 	  redirect_to @task
-      else
+     @task.user_id =current_user.id
+  	 if @task.save
+  	 	  redirect_to @task,notice:"task is created suceesfully"
+     else
   	 	  render 'new'
       end
   end

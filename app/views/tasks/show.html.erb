@@ -5,7 +5,8 @@
 	          <h3> created_on :
 	           <h4> <%= @task.created_at %></h4> </h3> <br/>
               <h3> completed_at :   
-	          <h4> <%= @task.completed_at %></h4> </h3><br/>
+	          <h4> <%= @task.completed_at %></h4> </h3><br/> <h3> user:
+	          <%= @task.user.email %></h3>
       <div> <%= link_to 'Home',root_path(@task),class: 'btn btn-primary'%>
      </div>      
 
