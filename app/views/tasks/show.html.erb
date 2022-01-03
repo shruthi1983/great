@@ -1,14 +1,20 @@
-<div class = "container text-center">
 
-	 <h2> <%=@task.note %></h2> <br> 
+<div class="jumbotron text-center ">
+<h1 class="display-4">	 <%=@task.note %></h1> <br> 
 	
-	          <h3> created_on :
-	           <h4> <%= @task.created_at %></h4> </h3> <br/>
-              <h3> completed_at :   
-	          <h4> <%= @task.completed_at %></h4> </h3><br/> <h3> user:
-	          <%= @task.user.email %></h3>
-      <div> <%= link_to 'Home',root_path(@task),class: 'btn btn-primary'%>
-     </div>      
-
-
- </div>
+	          <h2> created_on :
+	            <%= @task.created_at %> </h2> <br/>
+              <h2> completed_at :   
+	            <%= @task.completed_at %></h2> 
+             <br/> 
+      <div>
+        <p class="lead">
+        <h2> <a  href="#" role="button"><%= link_to 'Home',root_path(@task),class:"btn btn-secondary btn-lg"%></a></h2></p>
+     </div>  <br/>    
+  <h2><% if @task.user == current_user %>
+    <h2><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_task_path(@task) ,class: 'btn btn-success btn-lg'%>
+          
+        <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, task_path(@task), method: :delete, data: { confirm: "Are you sure?"},class: 'btn btn-danger btn-lg' %></h2>
+       <% end %>
+</div>
+ 

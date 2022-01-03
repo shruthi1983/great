@@ -1,31 +1,31 @@
 class TasksController < ApplicationController
 	before_action :find_task,only: [:show,:edit,:update,:destroy]
-    before_action :authenticate_user!,except: [:index, :show]
-    before_action :correct_user, only: [:edit,:update,:destroy]
+  before_action :authenticate_user!,except: [:index, :show]
+  before_action :correct_user, only: [:edit,:update,:destroy]
 
   def index
   	 @tasks = Task.all
   end
   
   def show
-  	 @task = Task.find(params[:id])
+   
   end
   def new
   	#@task = Task.new
     @task = current_user.tasks.build
   end
   def create
-     #@task = Task.new(task_params)
-     @task = current_user.tasks.build(task_params)
+    #@task = Task.new(task_params)
+   @task = current_user.tasks.build(task_params)
      @task.user_id =current_user.id
   	 if @task.save
-  	 	  redirect_to @task,notice:"task is created suceesfully"
+  	 	  redirect_to @task,notice:"Note is created suceesfully"
      else
   	 	  render 'new'
       end
   end
   def edit 
-     @task = Task.find(params[:id])
+    
   end
   def update
   	  @task = Task.find(params[:id])

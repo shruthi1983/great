@@ -1,25 +1,25 @@
 
 <%= form_with model: @task do |f| %>
-  <div class="form-group">
+ <h2> <div class="form-group">
 	
     <%= f.text_field :note,class:"form-control",placeholder:"Note" %><br>
-  </div>
+  </div></h2>
   <div class="form-group">
 	
-    <%= f.datetime_field :created_on,class:"form-control",placeholder:"Date" %><br>
+    <%= f.date_field :created_on,class:"form-control",placeholder:"Date" %><br>
   </div>
   <div class="field form-group">
     
-    <%= f.datetime_field :completed_at,class:"form-control",placeholder:"Date" %><br>
+    <%= f.date_field :completed_at,class:"form-control",placeholder:"Date" %><br>
   
     </div>
     <div class=" field form-group">
     
     <%= f.number_field :user_id,id: :task_user_id,class:"form-control",value: current_user.id,type: :hidden %>
     </div>
-    <%= current_user.id%>
+   
     <br/>
-    <div class="form-group" >
-   <%= f.submit 'submit',class:'btn btn-primary' %> 
-   </div>
+    <h2><div class="form-group" >
+   <%= f.submit 'submit',class:'btn btn-primary  btn-lg' %> 
+   </div></h2>
 <% end %>
