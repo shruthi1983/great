@@ -7,8 +7,10 @@
               <h2> Completed_at :  
 	            <%= @task.completed_at %></h2> 
              <br/> 
-    <h2><b><u><% if(@task.created_at==@task.completed_at) %>
-     <P  class= "text-secondary">  Status :  Task completed</P>
+    <h2><b><u><% if(@task.created_at>=@task.completed_at) %>
+           Task already completed [incorrect complete date]
+   <% elsif %>
+    <b> <strong><P  class= "text-primary">  Status :  Task completed</P></strong></b>
       <% else %>
     <P  class= "text-danger">   Status : Not completed
       <% end%></u></b></h2></P>

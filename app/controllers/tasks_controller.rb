@@ -17,9 +17,9 @@ class TasksController < ApplicationController
   def create
     #@task = Task.new(task_params)
    @task = current_user.tasks.build(task_params)
-     @task.user_id =current_user.id
+
   	 if @task.save
-  	 	  redirect_to @task,notice:"Note is created suceesfully"
+  	 	  redirect_to @task,notice:"Task created suceesfully"
      else
   	 	  render 'new'
       end
@@ -30,14 +30,14 @@ class TasksController < ApplicationController
   def update
   	  @task = Task.find(params[:id])
   	   if @task.update(task_params)
-  	 	  redirect_to @task
+  	 	  redirect_to @task, notice:" Task was sucessfully updated"
        else
           render 'edit'
        end
   end
   def destroy
    	 @task.destroy
-   	 redirect_to root_path
+   	 redirect_to root_path,notice: "Task deleted sucessfully"
   end
   def find_task
    	 @task = Task.find(params[:id])
