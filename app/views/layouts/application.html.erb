@@ -16,12 +16,12 @@
 
   <body >
       
-      <nav class= "navbar navbar-default text-white justify-content-center ">
+      <nav class= "navbar navbar-default ">
         <div class = "container-fluid "> 
         
           <div class="navbar-header">
           
-         <h1> <a class= "navbar-brand navbar-center " href="<%=root_path %>"> <%= link_to 'To-Do <i class="fa fa-book" aria-hidden="true"></i>'.html_safe%></a></h1>
+         <h1> <a class= "navbar-brand navbar-center " href="#"> <%= link_to 'To-Do <i class="fa fa-book" aria-hidden="true"></i>'.html_safe,root_path%></a></h1>
          </div>
        
         <p class="notice"><%= notice %></p>
@@ -33,6 +33,7 @@
         <% if user_signed_in? %>
          
          <li  class ="nav-item"><h1><%= link_to 'Sign-Out <i class="fa fa-sign-out"></i>'.html_safe,destroy_user_session_path, :method=> :delete ,class:'btn btn-primary btn-lg' %></li></h1>
+           </h3>
         <% else %>
         <button>   <%= link_to 'Admin Login',new_user_session_path,class:'btn btn-success btn-lg'%></button>
 
@@ -43,9 +44,9 @@
 
     <div class="container">
     <div class="col-sm-9 col-sm-offset-1">
-    
    
-      
+    
+     
       
     <%= yield %>
   </div>

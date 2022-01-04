@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 	before_action :find_task,only: [:show,:edit,:update,:destroy]
   before_action :authenticate_user!,except: [:index, :show]
-  before_action :correct_user, only: [:edit,:update,:destroy]
+  before_action :correct_user, only: [:show, :edit,:update,:destroy]
 
   def index
   	 @tasks = Task.all
@@ -42,12 +42,17 @@ class TasksController < ApplicationController
   def find_task
    	 @task = Task.find(params[:id])
   end
+
   def correct_user
-    @tasks =current_user.tasks.find_by(id: params[:id])
-    redirect_to tasks_path,notice:"not authorize to edit" if @task.nil?
+    @task =current_user.tasks.find_by(id: params[:id])
+    redirect_to tasks_path,
+    notice:"Not authorize to create" if @task.nil?
+    
   end
+
  private
+
   def task_params
-     params.require(:task).permit(:note,:created_at,:completed_at,:user_id)
+    params.require(:task).permit(:note,:created_at,:completed_at,:user_id)
   end
 end
